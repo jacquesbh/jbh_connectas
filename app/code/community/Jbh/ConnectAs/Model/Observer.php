@@ -23,7 +23,6 @@ class Jbh_ConnectAs_Model_Observer extends Mage_Core_Model_Abstract
      */
     public function addOurCoolButton(Varien_Event_Observer $observer)
     {
-        Mage::log('foo');
         // We add the button if the admin is allowed and if we have the block :)
         if (Mage::getSingleton('admin/session')->isAllowed('customer/jbh_connectas') && ($block = Mage::app()->getLayout()->getBlock('customer_edit'))) {
             $block->addButton('jbh_connectas', array(
