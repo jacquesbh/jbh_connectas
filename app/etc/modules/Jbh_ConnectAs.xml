@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Jbh_ConnectAs for Magento.
+ *
+ * @license MIT (https://raw.github.com/jacquesbh/jbh_connectas/master/LICENSE)
+ * @category Jbh
+ * @package Jbh_ConnectAs
+ * @copyright Copyright (c) 2012 Jacques Bodin-Hullin <jacques@bodin-hullin.net>
+ */
+-->
+<config>
+    <modules>
+        <Jbh_ConnectAs>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Jbh_ConnectAs>
+    </modules>
+</config>

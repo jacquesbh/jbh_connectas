@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Jbh_ConnectAs for Magento.
+ *
+ * @license MIT (https://raw.github.com/jacquesbh/jbh_connectas/master/LICENSE)
+ * @category Jbh
+ * @package Jbh_ConnectAs
+ * @copyright Copyright (c) 2012 Jacques Bodin-Hullin <jacques@bodin-hullin.net>
+ */
+-->
+<config>
+    <modules>
+        <Jbh_ConnectAs>
+            <version>0.1.0</version>
+        </Jbh_ConnectAs>
+    </modules>
+    <global>
+        <helpers>
+            <jbh_connectas>
+                <class>Jbh_ConnectAs_Helper</class>
+            </jbh_connectas>
+        </helpers>
+        <models>
+            <jbh_connectas>
+                <class>Jbh_ConnectAs_Model</class>
+            </jbh_connectas>
+        </models>
+    </global>
+    <admin>
+        <routers>
+            <jbh_connectas_adminhtml>
+                <use>admin</use>
+                <args>
+                    <module>Jbh_ConnectAs_Adminhtml</module>
+                    <frontName>adminhtml_connectas</frontName>
+                </args>
+            </jbh_connectas_adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <controller_action_layout_render_before_adminhtml_customer_edit>
+                <observers>
+                    <add_connectas_button>
+                        <class>jbh_connectas/observer</class>
+                        <method>addOurCoolButton</method>
+                    </add_connectas_button>
+                </observers>
+            </controller_action_layout_render_before_adminhtml_customer_edit>
+        </events>
+    </adminhtml>
+</config>
