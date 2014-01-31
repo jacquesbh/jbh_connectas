@@ -49,5 +49,14 @@
                 </observers>
             </controller_action_layout_render_before_adminhtml_customer_edit>
         </events>
+        <translate>
+            <modules>
+                <connectas>
+                    <files>
+                        <default>Jbh_ConnectAs.csv</default>
+                    </files>
+                </connectas>
+            </modules>
+        </translate>
     </adminhtml>
 </config>
