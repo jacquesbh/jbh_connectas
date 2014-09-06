@@ -22,7 +22,7 @@ class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_
      */
     public function indexAction()
     {
-        // We retrive the customer
+        // We retrieve the customer
         $customer = Mage::getModel('customer/customer')->load($this->getRequest()->getParam('id', null));
 
         try {
@@ -31,35 +31,30 @@ class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_
                 Mage::throwException('User not found.');
             }
 
+            $request = Mage::getModel('jbh_connectas/request');
+            $request
+                ->setCustomerId($customer->getId())
+                ->setHash(hash('sha1', uniqid('customer_') . $customer->getId()))
+                ->setCreatedAt(Mage::getSingleton('core/date')->gmtDate())
+                ->save();
+
             // The store
             $preferedStoreViewId = $customer->getPreferedStoreViewId();
             if (!$preferedStoreViewId) {
-                $preferedStoreViewId = Mage::app()
+                $preferedStoreView = Mage::app()
                         ->getWebsite($customer->getWebsiteId())
-                        ->getDefaultStore()
-                        ->getStoreId();
+                        ->getDefaultStore();
+                $preferedStoreViewId = $preferedStoreView->getStoreId();
+            } else {
+                $preferedStoreView = Mage::app()->getStore($customer->getPreferedStoreViewId());
             }
 
-            // Close the current session
-            session_write_close();
-
-            // Delete frontend's cookie
-            $params = session_get_cookie_params();
-            setcookie('frontend', '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-
-            // Create the new frontend's cookie :)
-            session_name('frontend');
-            session_start();
-            $customer->setPreferedStoreViewId($preferedStoreViewId);
-
-            // We set the customer and the store view
-            Mage::app()->setCurrentStore(
-                Mage::getModel('core/store')->load($preferedStoreViewId)
-            );
-            Mage::getSingleton('customer/session')->setCustomerAsLoggedIn($customer);
-
-            // We redirect to the customer's account :)
-            $this->_redirectUrl(Mage::helper('customer')->getAccountUrl());
+            // We redirect to the login front controller
+            $url = $preferedStoreView->getUrl('jbh_connectas/customer/login', [
+                'id' => $request->getId(),
+                'hash' => $request->getHash(),
+            ]);
+            $this->_redirectUrl($url);
 
         } catch (Mage_Core_Exception $e) {
 

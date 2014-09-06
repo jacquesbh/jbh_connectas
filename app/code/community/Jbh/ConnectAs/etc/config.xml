@@ -24,8 +24,28 @@
         <models>
             <jbh_connectas>
                 <class>Jbh_ConnectAs_Model</class>
+                <resourceModel>jbh_connectas_resource</resourceModel>
             </jbh_connectas>
+            <jbh_connectas_resource>
+                <class>Jbh_ConnectAs_Model_Resource</class>
+                <entities>
+                    <request>
+                        <table>jbh_connectas_request</table>
+                    </request>
+                </entities>
+            </jbh_connectas_resource>
         </models>
+        <resources>
+            <jbh_connectas_setup>
+                <setup>
+                    <module>Jbh_ConnectAs</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </jbh_connectas_setup>
+        </resources>
     </global>
     <admin>
         <routers>
@@ -59,4 +79,15 @@
             </modules>
         </translate>
     </adminhtml>
+    <frontend>
+        <routers>
+            <jbh_connectas>
+                <use>standard</use>
+                <args>
+                    <module>Jbh_ConnectAs</module>
+                    <frontName>connectas</frontName>
+                </args>
+            </jbh_connectas>
+        </routers>
+    </frontend>
 </config>
