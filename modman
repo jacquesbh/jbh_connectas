@@ -1,6 +1,2 @@
-app/code/community/Jbh/ConnectAs/controllers/Adminhtml/IndexController.php          app/code/community/Jbh/ConnectAs/controllers/Adminhtml/IndexController.php
-app/code/community/Jbh/ConnectAs/etc/adminhtml.xml                                  app/code/community/Jbh/ConnectAs/etc/adminhtml.xml
-app/code/community/Jbh/ConnectAs/etc/config.xml                                     app/code/community/Jbh/ConnectAs/etc/config.xml
-app/code/community/Jbh/ConnectAs/Helper/Data.php                                    app/code/community/Jbh/ConnectAs/Helper/Data.php
-app/code/community/Jbh/ConnectAs/Model/Observer.php                                 app/code/community/Jbh/ConnectAs/Model/Observer.php
+app/code/community/Jbh/ConnectAs app/code/community/Jbh/ConnectAs
 app/etc/modules/Jbh_ConnectAs.xml                                                   app/etc/modules/Jbh_ConnectAs.xml
