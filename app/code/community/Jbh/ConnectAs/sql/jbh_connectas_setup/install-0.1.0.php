@@ -2,11 +2,10 @@
 /**
  * This file is part of Jbh_ConnectAs for Magento.
  *
- * @license All rights reserved
- * @author Jacques Bodin-Hullin <@jacquesbh> <j.bodinhullin@monsieurbiz.com>
+ * @license MIT (https://raw.github.com/jacquesbh/jbh_connectas/master/LICENSE)
  * @category Jbh
  * @package Jbh_ConnectAs
- * @copyright Copyright (c) 2014 Monsieur Biz (http://monsieurbiz.com/)
+ * @copyright Copyright (c) 2012 Jacques Bodin-Hullin <jacques@bodin-hullin.net>
  */
 
 try {

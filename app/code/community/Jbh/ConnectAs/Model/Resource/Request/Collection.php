@@ -2,11 +2,10 @@
 /**
  * This file is part of Jbh_ConnectAs for Magento.
  *
- * @license All rights reserved
- * @author Jacques Bodin-Hullin <@jacquesbh> <j.bodinhullin@monsieurbiz.com>
+ * @license MIT (https://raw.github.com/jacquesbh/jbh_connectas/master/LICENSE)
  * @category Jbh
  * @package Jbh_ConnectAs
- * @copyright Copyright (c) 2014 Monsieur Biz (http://monsieurbiz.com/)
+ * @copyright Copyright (c) 2012 Jacques Bodin-Hullin <jacques@bodin-hullin.net>
  */
 
 /**
@@ -15,10 +14,6 @@
  */
 class Jbh_ConnectAs_Model_Resource_Request_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
-
-// Monsieur Biz Tag NEW_CONST
-
-// Monsieur Biz Tag NEW_VAR
 
     /**
      * Request Collection Resource Constructor
@@ -29,7 +24,5 @@ class Jbh_ConnectAs_Model_Resource_Request_Collection extends Mage_Core_Model_Re
         parent::_construct();
         $this->_init('jbh_connectas/request');
     }
-
-// Monsieur Biz Tag NEW_METHOD
 
 }
