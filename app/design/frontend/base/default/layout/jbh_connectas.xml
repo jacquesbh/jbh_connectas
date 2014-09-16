@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Jbh_ConnectAs for Magento.
+ *
+ * @license MIT (https://raw.github.com/jacquesbh/jbh_connectas/master/LICENSE)
+ * @category Jbh
+ * @package Jbh_ConnectAs
+ * @copyright Copyright (c) 2012 Jacques Bodin-Hullin <jacques@bodin-hullin.net>
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <block type="jbh_connectas/notice" name="connectas_notice" as="connectas_notice" template="jbh/connectas/notice.phtml" parent="root" />
+    </default>
+
+</layout>
