@@ -1,2 +1,4 @@
 app/code/community/Jbh/ConnectAs app/code/community/Jbh/ConnectAs
-app/etc/modules/Jbh_ConnectAs.xml                                                   app/etc/modules/Jbh_ConnectAs.xml
+app/etc/modules/Jbh_ConnectAs.xml app/etc/modules/Jbh_ConnectAs.xml
+app/design/frontend/base/default/layout/jbh_connectas.xml app/design/frontend/base/default/layout/jbh_connectas.xml
+app/design/frontend/base/default/template/jbh/connectas app/design/frontend/base/default/template/jbh/connectas
