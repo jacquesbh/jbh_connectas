@@ -33,4 +33,12 @@ class Jbh_ConnectAs_Model_Observer extends Mage_Core_Model_Abstract
         }
     }
 
+    /**
+     * Remove the connact as cookie
+     */
+    public function removeCookie()
+    {
+        Mage::helper('jbh_connectas')->deleteCookie();
+    }
+
 }

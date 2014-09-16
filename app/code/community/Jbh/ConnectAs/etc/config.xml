@@ -46,6 +46,11 @@
                 </connection>
             </jbh_connectas_setup>
         </resources>
+        <blocks>
+            <jbh_connectas>
+                <class>Jbh_ConnectAs_Block</class>
+            </jbh_connectas>
+        </blocks>
     </global>
     <admin>
         <routers>
@@ -89,5 +94,22 @@
                 </args>
             </jbh_connectas>
         </routers>
+        <events>
+            <customer_logout>
+                <observers>
+                    <remove_connectas_cookie>
+                        <class>jbh_connectas/observer</class>
+                        <method>removeCookie</method>
+                    </remove_connectas_cookie>
+                </observers>
+            </customer_logout>
+        </events>
+        <layout>
+            <updates>
+                <jbh_connectas module="Jbh_ConnectAs">
+                    <file>jbh_connectas.xml</file>
+                </jbh_connectas>
+            </updates>
+        </layout>
     </frontend>
 </config>
