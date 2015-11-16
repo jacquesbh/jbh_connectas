@@ -23,6 +23,7 @@ class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_
     public function indexAction()
     {
         // We retrieve the customer
+        /* @var $customer Mage_Customer_Model_Customer */
         $customer = Mage::getModel('customer/customer')->load($this->getRequest()->getParam('id', null));
 
         try {
@@ -39,14 +40,17 @@ class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_
                 ->save();
 
             // The store
-            $preferedStoreViewId = $customer->getPreferedStoreViewId();
-            if (!$preferedStoreViewId) {
-                $preferedStoreView = Mage::app()
+            if (!$preferedStoreViewId = $customer->getPreferedStoreViewId()) {
+                if (!$customer->getStoreId()) {
+                    $preferedStoreView = Mage::app()
                         ->getWebsite($customer->getWebsiteId())
                         ->getDefaultStore();
-                $preferedStoreViewId = $preferedStoreView->getStoreId();
-            } else {
-                $preferedStoreView = Mage::app()->getStore($customer->getPreferedStoreViewId());
+                } else {
+                    $preferedStoreViewId = $customer->getStoreId();
+                }
+            }
+            if (!isset($preferedStoreView)) {
+                $preferedStoreView = Mage::app()->getStore($preferedStoreViewId);
             }
 
             // We redirect to the login front controller
@@ -54,6 +58,7 @@ class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_
                 'id' => $request->getId(),
                 'hash' => $request->getHash(),
             ]);
+
             $this->_redirectUrl($url);
 
         } catch (Mage_Core_Exception $e) {
