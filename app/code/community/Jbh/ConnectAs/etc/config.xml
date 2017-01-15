@@ -54,13 +54,13 @@
     </global>
     <admin>
         <routers>
-            <jbh_connectas_adminhtml>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Jbh_ConnectAs_Adminhtml</module>
-                    <frontName>adminhtml_connectas</frontName>
+                    <modules>
+                        <jbh_connectas after="Mage_Adminhtml">Jbh_ConnectAs_Adminhtml</jbh_connectas>
+                    </modules>
                 </args>
-            </jbh_connectas_adminhtml>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>
