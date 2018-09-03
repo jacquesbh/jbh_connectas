@@ -12,7 +12,7 @@
  * Adminhtml_Index Controller
  * @package Jbh_ConnectAs
  */
-class Jbh_ConnectAs_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Action
+class Jbh_ConnectAs_Adminhtml_ConnectasController extends Mage_Adminhtml_Controller_Action
 {
 
     /**
