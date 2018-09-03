@@ -27,7 +27,7 @@ class Jbh_ConnectAs_Model_Observer extends Mage_Core_Model_Abstract
         if (Mage::getSingleton('admin/session')->isAllowed('customer/jbh_connectas') && ($block = Mage::app()->getLayout()->getBlock('customer_edit'))) {
             $block->addButton('jbh_connectas', array(
                 'label' => Mage::helper('jbh_connectas')->__('Connect As'),
-                'onclick' => 'window.open(\'' . Mage::helper('adminhtml')->getUrl('jbh_connectas_adminhtml', array('id' => Mage::registry('current_customer')->getId())) . '\')',
+                'onclick' => 'window.open(\'' . Mage::helper('adminhtml')->getUrl('adminhtml/connectas', array('id' => Mage::registry('current_customer')->getId())) . '\')',
                 'class' => 'go'
             ));
         }
