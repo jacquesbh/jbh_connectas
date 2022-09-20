@@ -40,7 +40,9 @@ class Jbh_ConnectAs_Adminhtml_ConnectasController extends Mage_Adminhtml_Control
                 ->save();
 
             // The store
-            if (!$preferedStoreViewId = $customer->getPreferedStoreViewId()) {
+            if (null !== ($storeId = (int) \Mage::app()->getRequest()->get('store_id'))) {
+                $preferedStoreView = Mage::app()->getStore($storeId);
+            } elseif (!$preferedStoreViewId = $customer->getPreferedStoreViewId()) {
                 if (!$customer->getStoreId()) {
                     $preferedStoreView = Mage::app()
                         ->getWebsite($customer->getWebsiteId())

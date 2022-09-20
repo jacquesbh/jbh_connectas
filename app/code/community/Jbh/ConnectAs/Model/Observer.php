@@ -25,11 +25,15 @@ class Jbh_ConnectAs_Model_Observer extends Mage_Core_Model_Abstract
     {
         // We add the button if the admin is allowed and if we have the block :)
         if (Mage::getSingleton('admin/session')->isAllowed('customer/jbh_connectas') && ($block = Mage::app()->getLayout()->getBlock('customer_edit'))) {
-            $block->addButton('jbh_connectas', array(
-                'label' => Mage::helper('jbh_connectas')->__('Connect As'),
-                'onclick' => 'window.open(\'' . Mage::helper('adminhtml')->getUrl('adminhtml/connectas', array('id' => Mage::registry('current_customer')->getId())) . '\')',
-                'class' => 'go'
-            ));
+            $stores = Mage::app()->getStores();
+            foreach ($stores as $store) {
+                $block->addButton('jbh_connectas_store_' . $store->getId(), [
+                    'label'   => Mage::helper('jbh_connectas')->__('Connect As') . sprintf(' (%s)', $store->getCode()),
+                    'onclick' => 'window.open(\'' . Mage::helper('adminhtml')->getUrl('adminhtml/connectas',
+                        ['id' => Mage::registry('current_customer')->getId(), 'store_id' => $store->getId()]) . '\')',
+                    'class'   => 'go'
+                ]);
+            }
         }
     }
 
